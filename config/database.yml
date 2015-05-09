@@ -1,0 +1,29 @@
+# Configure Using Gemfile
+# gem 'pg'
+#
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: smart_task_development
+  username: smart_task
+  password: testing
+  host: localhost
+  port: 5432
+
+test:
+  <<: *default
+  database: smart_task_test
+  username: smart_task
+  password: testing
+  host: localhost
+  port: 5432
+
+production:
+  <<: *default
+  database: smart_task_production
+  username: smart_task
+  password: <%= ENV['SMART_TASK_DATABASE_PASSWORD'] %>
