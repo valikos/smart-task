@@ -1,0 +1,50 @@
+.project-box {
+  height: 52px;
+  clear: both;
+  margin-bottom: 25px;
+  margin-top: 0;
+  padding: 0;
+  .project-header {
+    background: asset-url('project-header-bg.png') repeat-x scroll 0 0 transparent;
+    line-height: 52px;
+    padding-left: 15px;
+    padding-right: 15px;
+    .project-title {
+      display: inline-block;
+      input {
+        height: 50px;
+        margin: 0;
+        padding: 0;
+        border: none;
+        background-color: transparent;
+        color: white;
+        font-size: 34px;
+      }
+    }
+    h1{
+      margin: 0;
+      margin-left: 5px;
+      font-size: 36px;
+      color: white;
+      line-height: 52px;
+      display: inline-block;
+    }
+    .project-control {
+      .fa{
+        cursor: pointer;
+      }
+      display: inline-block;
+      float: right;
+      margin-top: 0;
+      position: relative;
+      padding: 0;
+    }
+  }
+}
+
+.new-project {
+  cursor: pointer;
+  &:hover {
+    color: #333;
+  }
+}

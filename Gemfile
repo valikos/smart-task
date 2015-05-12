@@ -33,11 +33,14 @@ gem "twitter-bootstrap-rails"
 
 gem 'rails_12factor', group: :production
 gem 'bower-rails', '~> 0.9.2'
+gem 'angular-rails-templates'
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'pry-rails'
+  gem 'rspec-rails', '~> 3.2.1'
+  gem 'factory_girl_rails', '~> 4.5.0'
+
   gem 'pry-byebug'
+  gem 'pry-rails'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -46,10 +49,10 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec-rails', '~> 3.2.1'
-  gem 'factory_girl_rails', '~> 4.5.0'
   gem 'capybara', '~> 2.4.4'
+  gem 'launchy', '~> 2.4.3'
   gem 'selenium-webdriver', '~> 2.45.0'
   gem 'site_prism', '~> 2.7'
   gem 'database_cleaner', '~> 1.4.1'
+  gem 'shoulda-matchers'
 end

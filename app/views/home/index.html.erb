@@ -1,0 +1,27 @@
+<div class="container" ng-controller="ProjectController">
+  <div class="row" ng-repeat="project in projects">
+    <div class="col-md-12">
+      <div class="project-box">
+        <div class="project-header">
+          <i class="fa fa-list-alt fa-2x"></i>
+          <div class="project-title">
+            <h1>{{ project.name }}</h1>
+          </div>
+          <div class="project-control">
+            <i class="fa fa-edit fa-lg fa-inverse" ng-click="editProject(project)" data-toggle="modal" data-target="#modal-for-{{project.id}}"></i> |
+            <i class="fa fa-trash-o fa-lg fa-inverse" ng-click="removeProject($index)"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-include src="'project/_edit.html'"></ng-include>
+  </div>
+  <div class="row"
+    <div class="col-md-4 center-block">
+      <button id="singlebutton" name="singlebutton" class="btn btn-primary center-block" data-toggle="modal" data-target="#add-project">
+          Add Project
+      </button>
+      <ng-include src="'project/_add.html'"></ng-include>
+    </div>
+  </div>
+</div>

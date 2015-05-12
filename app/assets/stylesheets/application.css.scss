@@ -11,5 +11,13 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require ./project
  *= require_self
  */
+html,body {
+  background: asset-url('light-green-bg.jpg');
+}
+
+.navbar-bg {
+
+}
