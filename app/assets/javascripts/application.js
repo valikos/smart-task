@@ -16,10 +16,11 @@
 //= require angular
 //= require angular-resource
 //= require angular-route
-//= require angular-rails-templates
 //= require angular-bootstrap
+//= require angular-rails-templates
 
 //= require smart_task/app
-//= require_tree ./smart_task/templates
 //= require_tree ./templates
+//= require_tree ./smart_task/controllers
+//= require_tree ./smart_task/factories
 //= require_tree .

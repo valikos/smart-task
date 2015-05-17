@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
 
-  before_action :project!, only: [:update, :destroy]
+  before_action :project, only: [:update, :destroy]
 
   def index
     @projects = Project.all
@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      render json: @project, status: 204
+      render json: @project, status: :created
     else
       render json: @project.errors, status: :unprocessable_entity
     end
@@ -19,7 +19,7 @@ class ProjectsController < ApplicationController
 
   def update
     if @project.update!(project_params)
-      head :no_content
+      render json: @project, status: :accepted
     else
       render json: @project.errors, status: :unprocessable_entity
     end
@@ -35,7 +35,7 @@ class ProjectsController < ApplicationController
 
   private
 
-  def project!
+  def project
     @project = Project.find(params[:id])
   end
 

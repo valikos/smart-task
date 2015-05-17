@@ -1,20 +1,19 @@
 .project-box {
-  height: 52px;
   clear: both;
-  margin-bottom: 25px;
-  margin-top: 0;
-  padding: 0;
+  margin-bottom: 20px;
   .project-header {
     background: asset-url('project-header-bg.png') repeat-x scroll 0 0 transparent;
+    height: 52px;
     line-height: 52px;
     padding-left: 15px;
     padding-right: 15px;
+    height: 52px;
     .project-title {
       display: inline-block;
       input {
         height: 50px;
-        margin: 0;
-        padding: 0;
+        // margin: 0;
+        // padding: 0;
         border: none;
         background-color: transparent;
         color: white;
@@ -38,6 +37,13 @@
       margin-top: 0;
       position: relative;
       padding: 0;
+    }
+  }
+  .project-body {
+    .row {
+      // margin: 0;
+      // line-height: 42px;
+      // height: 42px;
     }
   }
 }

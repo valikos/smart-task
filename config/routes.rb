@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  resources :projects
+  resources :projects do
+    resources :tasks
+  end
 end
