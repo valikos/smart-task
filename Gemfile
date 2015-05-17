@@ -34,6 +34,7 @@ gem "twitter-bootstrap-rails"
 gem 'rails_12factor', group: :production
 gem 'bower-rails', '~> 0.9.2'
 gem 'angular-rails-templates'
+gem 'acts_as_list'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2.1'

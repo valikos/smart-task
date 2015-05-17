@@ -4,6 +4,10 @@ Rails.application.routes.draw do
   get 'home/index'
 
   resources :projects do
-    resources :tasks
+    resources :tasks do
+      collection do
+        post :reorder_position
+      end
+    end
   end
 end

@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-12">
+    <section class="add-task">
+      <form>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Describe New Task Here..." ng-model="newTask.name">
+          <span class="input-group-btn" ng-click="addTask(project.id)">
+            <button class="btn btn-success" type="button">
+              <i class="fa fa-plus fa-lg"></i> Add Task
+            </button>
+          </span>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+<div class="tasks" ui-tree="draggable" callbacks="draggable">
+  <ul class="list-unstyled list" ui-tree-nodes ng-model="project.tasks">
+    <li
+      class="task"
+      ng-repeat="task in project.tasks"
+      ui-tree-node
+    >
+      <div class="row">
+        <div class="task-status col-md-1">
+          <div class="checkbox text-center">
+            <label>
+              <input type="checkbox" ng-model="task.status">
+            </label>
+          </div>
+        </div>
+        <div class="task-name col-md-9">
+          {{ task.name }}
+        </div>
+        <div class="task-control col-md-2 text-center">
+          <i class="ctrl ctrl-move fa fa-sort" ui-tree-handle></i>
+          <i class="ctrl fa fa-pencil" ng-click="editTask(task)"></i>
+          <i class="ctrl fa fa-trash-o" ng-click="removeTask(task)"></i>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -18,6 +18,7 @@
 //= require angular-route
 //= require angular-bootstrap
 //= require angular-rails-templates
+//= require angular-ui-tree
 
 //= require smart_task/app
 //= require_tree ./templates

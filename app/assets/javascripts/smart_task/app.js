@@ -1,5 +1,5 @@
 (function(){
-  var app = angular.module('SmartTask', ['ngResource', 'ngRoute', 'templates', 'ui.bootstrap']);
+  var app = angular.module('SmartTask', ['ngResource', 'ngRoute', 'templates', 'ui.bootstrap', 'ui.tree']);
 
   app.config([
     '$httpProvider', function($httpProvider){
