@@ -6,6 +6,12 @@
   background-color: #fff;
 }
 .tasks {
+  .completed {
+    .task-name {
+      color: #999;
+      text-decoration: line-through;
+    }
+  }
   .lines {
     border-left: 1px solid #ffaa9f;
     border-right: 1px solid #ffaa9f;

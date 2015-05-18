@@ -6,18 +6,17 @@
 
     $scope.draggable = {
       accept: function(sourceNodeScope, destNodesScope, destIndex) {
-        return true;
+        if(destNodesScope.isParent(sourceNodeScope)){
+          return true;
+        }
+        return false;
       },
       dropped: function(event, q,w,e,r) {
-        console.log($scope.project.id);
         var newOrder = [];
         angular.forEach($scope.project.tasks, function(value, key) {
           this.push(value.id);
         }, newOrder);
         Task.reorder_position({project_id: $scope.project.id, tasks: newOrder});
-      },
-      beforeDrop: function(event) {
-        console.log('beforeDrop');
       }
     };
 

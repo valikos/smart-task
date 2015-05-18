@@ -14,20 +14,23 @@
     </section>
   </div>
 </div>
-<div class="tasks" ui-tree="draggable" callbacks="draggable">
+<div class="tasks" ui-tree="draggable">
   <ul class="list-unstyled list" ui-tree-nodes ng-model="project.tasks">
     <li
       class="task"
       ng-repeat="task in project.tasks"
       ui-tree-node
-    >
+      ng-class="{completed: task.status}">
       <div class="row">
         <div class="task-status col-md-1">
+          <form>
           <div class="checkbox text-center">
             <label>
-              <input type="checkbox" ng-model="task.status">
+              <input type="checkbox"
+                ng-model="task.status" ng-click="updateTask(task)">
             </label>
           </div>
+          </form>
         </div>
         <div class="task-name col-md-9">
           {{ task.name }}
