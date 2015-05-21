@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-
+  # before_action :set_current_user, :authenticate_request
   before_action :project, only: [:update, :destroy]
 
   def index

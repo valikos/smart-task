@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="SmartTask">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
@@ -15,7 +15,7 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
   </head>
-  <body ng-app="SmartTask">
+  <body ng-controller="MainCtrl">
     <!-- <div class="navbar navbar-default navbar-static-top navbar-bg">
       <div class="container">
         <a class="navbar-brand" href>smartTask</a>

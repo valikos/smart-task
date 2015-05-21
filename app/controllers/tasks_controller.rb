@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  # before_action :set_current_user, :authenticate_request
 
   def create
     if @task = Task.create(task_params)

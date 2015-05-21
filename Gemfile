@@ -35,6 +35,10 @@ gem 'rails_12factor', group: :production
 gem 'bower-rails', '~> 0.9.2'
 gem 'angular-rails-templates'
 gem 'acts_as_list'
+gem 'devise'
+gem 'omniauth-facebook'
+gem 'jwt'
+gem 'figaro'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2.1'
