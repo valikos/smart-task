@@ -44,6 +44,9 @@
         </div>
         <div class="panel-footer ">
           Don't have an account! <a href="#/sign_up">Sign Up Here</a>
+          <a href="<%= Rails.application.routes.url_helpers.user_omniauth_authorize_path(:facebook) %>" onClick="">
+            Sign in with Facebook
+          </a>
         </div>
       </div>
     </div>

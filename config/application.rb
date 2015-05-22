@@ -24,6 +24,8 @@ module SmartTask
 
     config.autoload_paths += %W(#{config.root}/lib/helpers)
 
+    config.jwt_expiration = 10.minutes
+
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: true,
