@@ -7,7 +7,6 @@
           email: credentials.email,
           password: credentials.password
         }).success(function(resp) {
-          console.log(resp);
           AuthToken.set(resp.auth_token);
           $rootScope.$broadcast(AuthEvents.loginSuccess);
           d.resolve(resp.user);

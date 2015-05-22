@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  post 'sign_in' => 'auth#sign_in'
+  post 'sign_in' => 'auth#login'
   post 'sign_up' => 'auth#sign_up'
 
   resources :projects do

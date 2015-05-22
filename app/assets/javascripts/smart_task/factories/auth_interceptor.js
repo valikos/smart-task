@@ -1,9 +1,9 @@
 (function(){
   AuthInterceptor = function($q, $injector){
     return {
-      // This will be called on every outgoing http request
       request: function(config) {
         var AuthToken = $injector.get("AuthToken");
+        var AuthEvents = $injector.get('AuthEvents');
         var token = AuthToken.get();
         config.headers = config.headers || {};
         if (token) {
@@ -11,10 +11,10 @@
         }
         return config || $q.when(config);
       },
-      // This will be called on every incoming response that has en error status code
       responseError: function(response) {
         var AuthEvents = $injector.get('AuthEvents');
-        var matchesAuthenticatePath = response.config && response.config.url.match(new RegExp('/sign'));
+        var AuthToken = $injector.get("AuthToken");
+        var matchesAuthenticatePath = response.config; // && response.config.url.match(new RegExp('/sign'));
         if (matchesAuthenticatePath) {
           $injector.get('$rootScope').$broadcast({
             401: AuthEvents.notAuthenticated,
@@ -22,6 +22,7 @@
             419: AuthEvents.sessionTimeout
           }[response.status], response);
         }
+        AuthToken.remove();
         return $q.reject(response);
       }
     };

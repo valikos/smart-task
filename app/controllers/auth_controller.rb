@@ -5,18 +5,21 @@ class AuthController < ApplicationController
   def sign_up
     user = User.new(credential_params)
     if user.save
+      sign_in user
       render json: { auth_token: user.generate_auth_token }
     else
       render json: { error: 'Invalid username or password' }, status: :unauthorized
     end
   end
 
-  def sign_in
-    user = User.find_by_credentials(params[:auth]) # you'll need to implement this
-    if user
+  def login
+    user = User.find_by(email: params[:email])
+
+    if user && user.valid_password?(params[:password])
+      sign_in user
       render json: { auth_token: user.generate_auth_token }
     else
-      render json: { error: 'Invalid username or password' }, status: :unauthorized
+      render json: { error: 'Invalid credentials' }, status: :unauthorized
     end
   end
 

@@ -1,4 +1,8 @@
+require 'pry'
+
 class ApplicationController < ActionController::Base
+  protect_from_forgery with: :null_session
+
   before_action :set_current_user, :authenticate_request
 
   rescue_from NotAuthenticatedError do
@@ -17,11 +21,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_user
+    @current_user
+  end
+
   # Check to make sure the current user was set and the token is not expired
   def authenticate_request
     if auth_token_expired?
       fail AuthenticationTimeoutError
-    elsif !@current_user
+    elsif !current_user
       fail NotAuthenticatedError
     end
   end
@@ -38,12 +46,7 @@ class ApplicationController < ActionController::Base
   # Bearer somerandomstring.encoded-payload.anotherrandomstring
   def http_auth_header_content
     return @http_auth_header_content if defined? @http_auth_header_content
-    @http_auth_header_content = begin
-      if request.headers['Authorization'].present?
-        request.headers['Authorization'].split(' ').last
-      else
-        nil
-      end
-    end
+    auth_header = AuthorizationHeader.new(request.headers)
+    @http_auth_header_content = auth_header.content
   end
 end

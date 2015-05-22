@@ -3,14 +3,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :trackable, :validatable,
     :omniauthable, :omniauth_providers => [:facebook]
 
-  scope :find_by_credentials, ->(params) {
-    user = find_by_email(params[:email])
-    if user.valid_password?(params[:password])
-      user
-    else
-      nil
-    end
-  }
+  has_many :projects
 
   def generate_auth_token
     payload = { user_id: self.id }
@@ -21,8 +14,6 @@ class User < ActiveRecord::Base
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
-      # user.name = auth.info.name   # assuming the user model has a name
-      # user.image = auth.info.image # assuming the user model has an image
     end
   end
 end

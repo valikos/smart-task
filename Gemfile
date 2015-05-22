@@ -43,6 +43,7 @@ gem 'figaro'
 group :development, :test do
   gem 'rspec-rails', '~> 3.2.1'
   gem 'factory_girl_rails', '~> 4.5.0'
+  gem 'faker'
 
   gem 'pry-byebug'
   gem 'pry-rails'
@@ -54,7 +55,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'capybara', '~> 2.4.4'
+  gem 'capybara-rails'
   gem 'launchy', '~> 2.4.3'
   gem 'selenium-webdriver', '~> 2.45.0'
   gem 'site_prism', '~> 2.7'

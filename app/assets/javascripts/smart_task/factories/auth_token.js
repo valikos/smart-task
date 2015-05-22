@@ -5,7 +5,8 @@
 
     return {
       get: get,
-      set: set
+      set: set,
+      remove: remove
     };
 
     function get() {
@@ -19,7 +20,11 @@
         return store.removeItem(key);
       }
     }
+
+    function remove() {
+      return store.removeItem(key);
+    }
   };
 
-  angular.module('SmartTask').factory('AuthToken', ['$window', AuthToken])
+  angular.module('SmartTask').factory('AuthToken', ['$window', AuthToken]);
 })();
