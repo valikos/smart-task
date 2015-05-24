@@ -1,15 +1,13 @@
 class ProjectsController < ApplicationController
-
+  # before_action :set_current_user, :authenticate_request
   before_action :project, only: [:update, :destroy]
 
   def index
-    @projects = Project.all
-
-    render json: @projects
+    render json: current_user.projects
   end
 
   def create
-    @project = Project.new(project_params)
+    @project = current_user.projects.new(project_params)
     if @project.save
       render json: @project, status: :created
     else
@@ -36,7 +34,7 @@ class ProjectsController < ApplicationController
   private
 
   def project
-    @project = Project.find(params[:id])
+    @project = current_user.projects.find(params[:id])
   end
 
   def project_params

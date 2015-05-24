@@ -5,10 +5,8 @@
     $scope.editedProject = null;
 
     $scope.addProject = function(newProject) {
-      console.log(newProject);
       Project.save(newProject).$promise
         .then(function(project) {
-          console.log(project);
           $scope.projects.push(project);
         });
       $scope.newProject = {};
@@ -43,7 +41,6 @@
     };
 
     $scope.cancelEdit = function(project) {
-      console.log(project);
       $scope.projects[$scope.projects.indexOf(project)] = $scope.originalProject;
       $scope.originalProject = $scope.editedProject = null;
     };

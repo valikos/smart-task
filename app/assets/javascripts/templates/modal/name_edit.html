@@ -4,10 +4,10 @@
 </div>
 <div class="modal-body">
   <form ng-submit="">
-    <input value="{{item.name}}" class="form-control" ng-model="item.name"/>
+    <input value="{{item.name}}" class="form-control edit-name" ng-model="item.name"/>
   </form>
 </div>
 <div class="modal-footer">
-  <button type="button" class="btn btn-default" ng-click="cancel(item)">Cancel</button>
-  <button type="button" class="btn btn-primary" ng-click="ok(item)">Save changes</button>
+  <button type="button" class="btn btn-default cancel-changes" ng-click="cancel(item)">Cancel</button>
+  <button type="button" class="btn btn-primary apply-changes" ng-click="ok(item)">Save changes</button>
 </div>

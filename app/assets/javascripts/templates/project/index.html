@@ -2,9 +2,13 @@
   <div class="container">
     <a class="navbar-brand" href>smartTask</a>
     <p class="navbar-text new-project" data-toggle="modal" data-target="#add-project">
-      <i class="fa fa-plus-circle fa-lg"></i>
+      <i class="fa fa-plus-circle fa-lg project-add"></i>
     </p>
-    <div class="navbar-collapse collapse navbar-responsive-collapse">
+
+    <div class="navbar-collapse collapse navbar-responsive-collapse" ng-controller="AuthCtrl">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="" ng-click="signOut($event)"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+      </ul>
     </div>
   </div>
 </div>
@@ -19,8 +23,8 @@
             <h1>{{ project.name }}</h1>
           </div>
           <div class="project-control">
-            <i class="fa fa-edit fa-lg fa-inverse" ng-click="editProject(project)"></i> |
-            <i class="fa fa-trash-o fa-lg fa-inverse" ng-click="removeProject($index)"></i>
+            <i class="fa fa-edit fa-lg fa-inverse edit-project" ng-click="editProject(project)"></i> |
+            <i class="fa fa-trash-o fa-lg fa-inverse remove-project" ng-click="removeProject($index)"></i>
           </div>
         </div>
         <task-list></task-list>

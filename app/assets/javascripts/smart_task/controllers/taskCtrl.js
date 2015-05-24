@@ -74,7 +74,6 @@
 
     $scope.removeTask = function(task) {
       var tasks = $scope.project.tasks;
-      console.log(task);
       Task.delete(task).$promise
         .then(function(result){
           tasks.splice(tasks.indexOf(task.id), 1);
