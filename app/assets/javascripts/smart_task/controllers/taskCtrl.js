@@ -4,6 +4,18 @@
     $scope.originalTask = null;
     $scope.editedTask = null;
 
+    $scope.picker = {
+      dueDate: null
+    };
+
+    $scope.openPicker = function(task) {
+      task.setDueDate = true;
+    };
+
+    $scope.setDueDate = function(task){
+      $scope.updateTask(task);
+    };
+
     $scope.draggable = {
       accept: function(sourceNodeScope, destNodesScope, destIndex) {
         if(destNodesScope.isParent(sourceNodeScope)){

@@ -2,13 +2,13 @@ class TasksController < ApplicationController
   # before_action :set_current_user, :authenticate_request
 
   def create
-    if @task = Task.create(task_params)
+    if current_project.tasks.create(task_params)
       render json: @task, status: :created
     end
   end
 
   def update
-    @task = Task.find(params[:id])
+    @task = current_project.tasks.find(params[:id])
     if @task.update(task_params)
       render json: @task.errors, status: :accepted
     else
@@ -30,7 +30,11 @@ class TasksController < ApplicationController
 
   protected
 
+  def current_project
+    current_user.projects.find(params[:project_id])
+  end
+
   def task_params
-    params.require(:task).permit(:name, :status)
+    params.require(:task).permit(:name, :status, :due_date)
   end
 end
