@@ -73,9 +73,8 @@
 
     $scope.cancelEdit = function(task) {
       var tasks = $scope.project.tasks;
-      tasks[tasks.indexOf(task)] = $scope.originalProject;
-      $scope.originalProject = $scope.editedProject = null;
-      angular.element('#modal-for-task-' + project.id).modal('hide');
+      tasks[tasks.indexOf(task)] = $scope.originalTask;
+      $scope.originalTask = $scope.editedTask = null;
     };
 
     $scope.updateTask = function(task) {

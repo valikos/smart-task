@@ -1,5 +1,6 @@
 (function(){
   CommentsCtrl = function($scope, $modalInstance, args, Comment) {
+    $scope.task = args.task;
     $scope.newComment = {
       task_id: args.task.id,
       project_id: args.task.project_id

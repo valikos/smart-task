@@ -39,6 +39,7 @@ gem 'devise'
 gem 'omniauth-facebook'
 gem 'jwt'
 gem 'figaro'
+gem 'carrierwave', '~> 0.10.0'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2.1'

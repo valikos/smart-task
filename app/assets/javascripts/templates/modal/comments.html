@@ -3,6 +3,22 @@
   <h4 class="modal-title">Comments for ...</h4>
 </div>
 <div class="modal-body">
+  <div ng-controller="AttachmentCtrl" ng-init="task = task">
+    <div>
+      <i ngf-select ng-model="files" class="glyphicon glyphicon-paperclip"></i>
+      Attach a file.
+      <span class="text-right" ng-show="attachments.length === 0">
+        No available attachments.
+      </span>
+    </div>
+
+    <ul ng-show="attachments">
+      <li ng-repeat="attachment in attachments">
+        <a target="_blank" href="{{attachment.file.url}}">{{attachment.name}}</a>
+      </li>
+    </ul>
+  </div>
+
   <form class="form-group" ng-submit="addComment()">
     <div class="input-group">
       <textarea class="form-control custom-control new-comment" rows="3" style="resize:none" ng-model="newComment.content"></textarea>
