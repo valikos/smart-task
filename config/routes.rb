@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :projects do
     resources :tasks do
+      resources :comments, only: [:index, :create, :destroy]
       collection do
         post :reorder_position
       end

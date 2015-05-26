@@ -7,6 +7,12 @@ class Project < ActiveRecord::Base
     length: { maximum: 160 }
 
   def as_json(options = {})
-    super({ include: [:tasks] })
+    super({
+      include: {
+        tasks: {
+          include: :comments
+        }
+      }
+    })
   end
 end

@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
     :omniauthable, :omniauth_providers => [:facebook]
 
   has_many :projects
+  has_many :tasks, through: :projects
 
   def generate_auth_token
     payload = { user_id: self.id }

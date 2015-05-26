@@ -1,5 +1,5 @@
 (function(){
-  TaskCtrl = function($scope, $modal, Task) {
+  TaskCtrl = function($scope, $filter, $modal, Task) {
     $scope.newTask = {};
     $scope.originalTask = null;
     $scope.editedTask = null;
@@ -26,6 +26,7 @@
       dropped: function(event, q,w,e,r) {
         var newOrder = [];
         angular.forEach($scope.project.tasks, function(value, key) {
+          value.position = key + 1;
           this.push(value.id);
         }, newOrder);
         Task.reorder_position({project_id: $scope.project.id, tasks: newOrder});
@@ -84,14 +85,32 @@
         });
     };
 
-    $scope.removeTask = function(task) {
-      var tasks = $scope.project.tasks;
+    $scope.removeTask = function(idx) {
+      var task = $scope.project.tasks[idx];
       Task.delete(task).$promise
         .then(function(result){
-          tasks.splice(tasks.indexOf(task.id), 1);
+          $scope.project.tasks.splice(idx, 1);
         });
     };
+
+    $scope.commentsModal = function(task) {
+      var modalInstance = $modal.open({
+        animation: true,
+        templateUrl: 'modal/comments.html',
+        controller: 'CommentsCtrl',
+        windowClass: 'modal-comments',
+        resolve: {
+          items: function() {
+            return {
+              task: task,
+              project: $scope.project
+            };
+          }
+        }
+      });
+    };
   };
+
   angular.module('SmartTask')
-    .controller('TaskCtrl', ['$scope', '$modal', 'Task', TaskCtrl]);
+    .controller('TaskCtrl', ['$scope', '$filter', '$modal', 'Task', TaskCtrl]);
 })();
