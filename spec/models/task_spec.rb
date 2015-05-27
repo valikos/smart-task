@@ -3,6 +3,8 @@ require 'rails_helper'
 RSpec.describe Task, type: :model do
   describe 'Relations' do
     it { expect(subject).to belong_to(:project) }
+    it { expect(subject).to have_many(:comments) }
+    it { expect(subject).to have_many(:attachments) }
   end
 
   describe 'Validations' do
