@@ -12,14 +12,6 @@
       text-decoration: line-through;
     }
   }
-  .lines {
-    border-left: 1px solid #ffaa9f;
-    border-right: 1px solid #ffaa9f;
-    width: 2px;
-    float: left;
-    height: 495px;
-    margin-left: 40px;
-  }
   .list {
     color: #555;
     padding: 0;
@@ -43,6 +35,9 @@
     line-height: 33px;
     height: 33px;
     .task-status {
+      .check-status{
+        padding-left: 50%;
+      }
       label{
         display:inline;
         input[type="checkbox"] {
