@@ -2,8 +2,11 @@ class TasksController < ApplicationController
   # before_action :set_current_user, :authenticate_request
 
   def create
-    if @task = current_project.tasks.create(task_params)
+    @task = current_project.tasks.new(task_params)
+    if @task.save
       render json: @task, status: :created
+    else
+      render json: @task.errors, status: :unprocessable_entity
     end
   end
 

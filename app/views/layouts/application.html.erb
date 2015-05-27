@@ -16,20 +16,7 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body ng-controller="MainCtrl">
-    <!-- <div class="navbar navbar-default navbar-static-top navbar-bg">
-      <div class="container">
-        <a class="navbar-brand" href>smartTask</a>
-        <p class="navbar-text new-project" ng-click="newProject">
-          <i class="fa fa-plus-circle fa-lg"></i>
-        </p>
-        <div class="navbar-collapse collapse navbar-responsive-collapse">
-        </div>
-      </div>
-    </div> -->
-
-    <%= bootstrap_flash %>
-    <%= yield %>
+    <div flash-message="5000" class="flash-alert-popup"></div>
     <div ng-view></div>
-
   </body>
 </html>

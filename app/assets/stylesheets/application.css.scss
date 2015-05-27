@@ -14,13 +14,10 @@
  *= require ./project
  *= require_self
  */
+
 html,body {
   background: asset-url('light-green-bg.jpg');
   background-attachment: fixed;
-}
-
-.navbar-bg {
-
 }
 
 .angular-ui-tree-drag {
@@ -54,3 +51,8 @@ html,body {
   -webkit-border-radius: 50%;
   border-radius: 50%;
 }
+
+.flash-alert-popup {
+  position: fixed;
+}
+

@@ -7,6 +7,8 @@
       AuthService.signIn($scope.credentials)
         .then(function(){
           $location.path('/');
+        }).catch(function(res){
+          $scope.$emit('error', res);
         });
     };
 
@@ -14,6 +16,8 @@
       AuthService.signUp($scope.credentials)
         .then(function(){
           $location.path('/');
+        }).catch(function(res){
+          $scope.$emit('error', res);
         });
     };
 

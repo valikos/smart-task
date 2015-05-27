@@ -40,6 +40,8 @@
       Task.save($scope.newTask).$promise
         .then(function(newTask){
           tasks.push(newTask);
+        }).catch(function(res){
+          $scope.$emit('error', res);
         });
       $scope.newTask = {};
     };
