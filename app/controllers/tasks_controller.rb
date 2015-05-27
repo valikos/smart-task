@@ -2,7 +2,7 @@ class TasksController < ApplicationController
   # before_action :set_current_user, :authenticate_request
 
   def create
-    if current_project.tasks.create(task_params)
+    if @task = current_project.tasks.create(task_params)
       render json: @task, status: :created
     end
   end

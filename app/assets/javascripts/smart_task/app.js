@@ -1,5 +1,5 @@
 (function(){
-  var app = angular.module('SmartTask', ['ngResource', 'ngRoute', 'templates', 'ui.bootstrap', 'ui.tree']);
+  var app = angular.module('SmartTask', ['ngResource', 'ngRoute', 'templates', 'ui.bootstrap', 'ui.tree', 'ngFileUpload']);
 
   app.constant('AuthEvents', {
     notAuthenticated: 'notAuthenticated',

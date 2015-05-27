@@ -21,6 +21,8 @@ class ProjectsPage < SitePrism::Page
   elements :task_due_date,  '.set-due-date'
   elements :reorder_task,   '.reorder-task'
   elements :task_status_checkbox, '.task-status-control'
+  elements :task_comments,  '.task-comments'
 
   section :datepicker, DatepickerSection, "ul.dropdown-menu"
+  section :comments, CommentsSection, "div.modal-comments div.modal-content"
 end

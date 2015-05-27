@@ -5,6 +5,8 @@
     "angular-route": "latest",
     "angular-resource": "latest",
     "angular-bootstrap": "latest",
-    "angular-ui-tree": "latest"
+    "angular-ui-tree": "latest",
+    "ng-file-upload": "latest",
+    "ng-file-upload-shim": "latest"
   }
 }

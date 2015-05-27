@@ -1,0 +1,42 @@
+<div class="modal-header">
+  <button type="button" class="close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title">Comments for ...</h4>
+</div>
+<div class="modal-body">
+  <div ng-controller="AttachmentCtrl" ng-init="task = task">
+    <div>
+      <i ngf-select ng-model="files" class="glyphicon glyphicon-paperclip"></i>
+      Attach a file.
+      <span class="text-right" ng-show="attachments.length === 0">
+        No available attachments.
+      </span>
+    </div>
+
+    <ul ng-show="attachments">
+      <li ng-repeat="attachment in attachments">
+        <a target="_blank" href="{{attachment.file.url}}">{{attachment.name}}</a>
+      </li>
+    </ul>
+  </div>
+
+  <form class="form-group" ng-submit="addComment()">
+    <div class="input-group">
+      <textarea class="form-control custom-control new-comment" rows="3" style="resize:none" ng-model="newComment.content"></textarea>
+      <span class="input-group-addon btn btn-primary add-new-comment" ng-click="addComment()">Add</span>
+    </div>
+  </form>
+  <div class="well" ng-hide="comments.length">
+    No comments ...
+  </div>
+  <ul class="list-group">
+    <li class="list-group-item comment-item" ng-repeat="comment in comments">
+      {{comment.content}}
+      <i class="glyphicon glyphicon-trash remove-comment"
+        ng-click="removeComment($index)"></i>
+    </li>
+  </ul>
+</div>
+<div class="modal-footer">
+  <!-- <button type="button" class="btn btn-default cancel-changes">Close</button>
+  <button type="button" class="btn btn-primary apply-changes">Save changes</button> -->
+</div>
