@@ -8,7 +8,10 @@
       Project.save(newProject).$promise
         .then(function(project) {
           $scope.projects.push(project);
+        }).catch(function(res){
+          $scope.$emit('error', res);
         });
+
       $scope.newProject = {};
       angular.element('#add-project').modal('hide');
     };
@@ -49,6 +52,9 @@
       Project.update(project).$promise
         .then(function(result){
           $scope.originalProject = $scope.editedProject = null;
+        }).catch(function(res){
+          $scope.$emit('error', res);
+          $scope.cancelEdit(project);
         });
     };
 

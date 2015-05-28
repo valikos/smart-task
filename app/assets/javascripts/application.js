@@ -22,6 +22,7 @@
 //= require ng-file-upload-shim
 //= require ng-file-upload
 //= require angular-flash-alert
+//= require ng-facebook
 
 //= require smart_task/app
 //= require_tree ./templates

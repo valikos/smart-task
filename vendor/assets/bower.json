@@ -8,6 +8,7 @@
     "angular-ui-tree": "latest",
     "ng-file-upload": "latest",
     "ng-file-upload-shim": "latest",
-    "angular-flash-alert": "latest"
+    "angular-flash-alert": "latest",
+    "ng-facebook": "latest"
   }
 }

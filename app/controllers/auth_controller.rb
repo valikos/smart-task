@@ -3,12 +3,13 @@ class AuthController < ApplicationController
   skip_before_action :set_current_user
 
   def sign_up
-    user = User.new(credential_params)
-    if user.save
+    begin
+      user = User.new(credential_params)
+      user.save
       sign_in user
       render json: { auth_token: user.generate_auth_token }
-    else
-      render json: { error: 'Invalid username or password' }, status: :unauthorized
+    rescue
+      render json: { error: 'Invalid credentials' }, status: :unauthorized
     end
   end
 

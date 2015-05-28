@@ -82,7 +82,10 @@
     $scope.updateTask = function(task) {
       Task.update(task).$promise
         .then(function(result){
-          $scope.originalProject = $scope.editedProject = null;
+          $scope.originalTask = $scope.editedTask = null;
+        }).catch(function(res){
+          $scope.$emit('error', res);
+          $scope.cancelEdit(task);
         });
     };
 

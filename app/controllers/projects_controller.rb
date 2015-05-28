@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update!(project_params)
+    if @project.update(project_params)
       render json: @project, status: :accepted
     else
       render json: @project.errors, status: :unprocessable_entity

@@ -21,6 +21,8 @@
         .then(function(newComment){
           $scope.comments.push(newComment);
           delete $scope.newComment.content;
+        }).catch(function(res){
+          $scope.$emit('error', res);
         });
     };
 
