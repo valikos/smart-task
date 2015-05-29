@@ -1,5 +1,5 @@
 (function(){
-  AuthService = function($http, $q, $rootScope, AuthToken, AuthEvents) {
+  var AuthService = function($http, $q, $rootScope, AuthToken, AuthEvents) {
     return {
       signIn: function(credentials) {
         var d = $q.defer();

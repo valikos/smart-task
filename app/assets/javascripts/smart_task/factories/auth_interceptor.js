@@ -1,5 +1,5 @@
 (function(){
-  AuthInterceptor = function($q, $injector){
+  var AuthInterceptor = function($q, $injector){
     return {
       request: function(config) {
         var AuthToken = $injector.get("AuthToken");

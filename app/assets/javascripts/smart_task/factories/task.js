@@ -1,5 +1,5 @@
 (function(){
-  Task = function($resource){
+  var Task = function($resource){
     return $resource(
       "/projects/:project_id/tasks/:listController:id",
       {

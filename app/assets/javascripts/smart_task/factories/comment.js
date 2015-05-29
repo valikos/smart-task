@@ -1,5 +1,5 @@
 (function(){
-  Comment = function($resource){
+  var Comment = function($resource){
     return $resource(
       "/projects/:project_id/tasks/:task_id/comments/:id",
       {

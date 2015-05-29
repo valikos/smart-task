@@ -1,5 +1,5 @@
 (function(){
-  Project = function($resource){
+  var Project = function($resource){
     return $resource("/projects/:id", { id: '@id' }, {
       update: { method: 'PUT' }
     });
