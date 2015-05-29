@@ -1,5 +1,5 @@
 (function(){
-  Attachment = function($resource){
+  var Attachment = function($resource){
     return $resource(
       "/projects/:project_id/tasks/:task_id/attachments",
       {

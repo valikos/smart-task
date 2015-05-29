@@ -1,8 +1,8 @@
 (function(){
   var app = angular.module('SmartTask', [
-    'ngResource',
-    'ngRoute',
+    'ui.router',
     'templates',
+    'ngResource',
     'ui.bootstrap',
     'ui.tree',
     'ngFileUpload',
@@ -57,26 +57,24 @@
     return $httpProvider.interceptors.push("AuthInterceptor");
   });
 
-  app.config(function($routeProvider){
-    var routeConfig = {
-      controller: 'ProjectCtrl',
-      templateUrl: 'project/index.html'
-    };
+  app.config(function($stateProvider, $urlRouterProvider){
+    $urlRouterProvider.otherwise("/");
 
-    $routeProvider
-      .when('/', routeConfig)
-      .when('/sign_in', {
+    $stateProvider
+      .state('index', {
+        url: '/',
+        controller: 'ProjectCtrl',
+        templateUrl: 'project/index.html'
+      })
+      .state('sign_in', {
+        url: '/sign_in',
         controller:  'AuthCtrl',
-        controllerAs: 'authCtrl',
         templateUrl: 'auth/sign_in.html'
       })
-      .when('/sign_up', {
+      .state('sign_up', {
+        url: '/sign_up',
         controller:  'AuthCtrl',
-        controllerAs: 'authCtrl',
         templateUrl: 'auth/sign_up.html'
-      })
-      .otherwise({
-        redirectTo: '/'
       });
   });
 })();

@@ -1,5 +1,5 @@
 (function(){
-  AuthCtrl = function($scope, $location, $facebook, AuthService, AuthToken) {
+  var AuthCtrl = function($scope, $location, $facebook, AuthService, AuthToken) {
     var ctrl = this;
     $scope.credentials = {};
 

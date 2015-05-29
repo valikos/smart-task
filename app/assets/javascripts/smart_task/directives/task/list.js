@@ -1,5 +1,5 @@
 (function(){
-  taskList = function(){
+  var taskList = function(){
     return {
       restrict: 'E',
       templateUrl: 'task/index.html',

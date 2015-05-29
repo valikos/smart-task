@@ -1,5 +1,5 @@
 (function(){
-  ProjectCtrl = function($scope, $modal, Project) {
+  var ProjectCtrl = function($scope, $modal, Project) {
     var projects = $scope.projects = Project.query();
     $scope.newProject = {};
     $scope.editedProject = null;

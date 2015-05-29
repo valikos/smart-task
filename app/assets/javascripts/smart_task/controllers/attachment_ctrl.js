@@ -1,5 +1,5 @@
 (function(){
-  AttachmentCtrl = function($scope, Upload, Attachment) {
+  var AttachmentCtrl = function($scope, Upload, Attachment) {
     $scope.attachments = null;
     $scope.$watch("testInput", function(){
       $scope.attachments = $scope.loadAttachments();

@@ -1,5 +1,5 @@
 (function(){
-  TaskCtrl = function($scope, $filter, $modal, Task) {
+  var TaskCtrl = function($scope, $modal, Task) {
     $scope.newTask = {};
     $scope.originalTask = null;
     $scope.editedTask = null;
@@ -116,5 +116,5 @@
   };
 
   angular.module('SmartTask')
-    .controller('TaskCtrl', ['$scope', '$filter', '$modal', 'Task', TaskCtrl]);
+    .controller('TaskCtrl', ['$scope', '$modal', 'Task', TaskCtrl]);
 })();

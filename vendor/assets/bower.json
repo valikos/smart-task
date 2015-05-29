@@ -9,6 +9,7 @@
     "ng-file-upload": "latest",
     "ng-file-upload-shim": "latest",
     "angular-flash-alert": "latest",
-    "ng-facebook": "latest"
+    "ng-facebook": "latest",
+    "ui-router": "latest"
   }
 }
