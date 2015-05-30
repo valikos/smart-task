@@ -14,9 +14,9 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require angular/angular.min
+//= require ui-router/release/angular-ui-router.min
 //= require angular-rails-templates
 //= require angular-resource/angular-resource.min
-//= require ui-router/release/angular-ui-router.min
 //= require angular-bootstrap/ui-bootstrap.min
 //= require angular-bootstrap/ui-bootstrap-tpls.min
 //= require angular-ui-tree/dist/angular-ui-tree.min
