@@ -14,6 +14,39 @@
     </section>
   </div>
 </div>
+<div class="table-responsive tasks" ui-tree="draggable">
+  <table class="table task-table" ui-tree-nodes>
+    <tbody ng-model="project.tasks">
+      <tr class="task" ng-repeat="task in project.tasks" ui-tree-node>
+        <td class="text-center task-status">
+          <form class="form-inline">
+            <div class="form-group text-center check-status">
+              <label>
+                <input type="checkbox" class="task-status-control"
+                  ng-model="task.status" ng-click="updateTask(task)">
+              </label>
+            </div>
+          </form>
+        </td>
+        <td class="task-name">
+          <span class="task-item" ng-class="{completed: task.status}">
+            {{ task.name }}
+          </span>
+          <span class="task-due-date">{{ task.due_date | date:'shortDate'}}</span>
+        </td>
+        <td class="text-center task-control">
+          <i class="fa fa-calendar set-due-date" datepicker-popup ng-model="task.due_date" is-open="task.setDueDate" ng-click="openPicker(task)" ng-hide="task.due_date" ng-change="setDueDate(task)"></i>
+          <i class="ctrl fa fa-comments task-comments" ng-click="commentsModal(task)"></i>
+          <i class="ctrl ctrl-move fa fa-sort reorder-task" ui-tree-handle></i>
+          <i class="ctrl fa fa-pencil edit-task" ng-click="editTask(task)"></i>
+          <i class="ctrl fa fa-trash-o remove-task" ng-click="removeTask($index)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!--
+
 <div class="tasks" ui-tree="draggable">
   <ul class="list-unstyled list" ui-tree-nodes ng-model="project.tasks">
     <li
@@ -46,4 +79,4 @@
       </div>
     </li>
   </ul>
-</div>
+</div> -->

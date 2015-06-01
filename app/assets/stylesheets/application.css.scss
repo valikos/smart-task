@@ -20,21 +20,8 @@ html,body {
   background-attachment: fixed;
 }
 
-.angular-ui-tree-drag {
-  position: absolute;
-  pointer-events: none;
-  z-index: 999;
-  opacity: .8;
-  background-color: #f5f5f5;
-  font-family: courier, monospace;
-  font-size: 22px;
-  height:31px;
-  line-height: 31px;
-  text-transform: capitalize;
-}
-
 .panel-heading {
-    padding: 5px 15px;
+  padding: 5px 15px;
 }
 
 .panel-footer {
