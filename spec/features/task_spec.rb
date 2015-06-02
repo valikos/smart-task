@@ -48,7 +48,7 @@ feature 'I want to be able to', js: true do
     @page.task_due_date[0].click
     @page.datepicker.today_date.click
 
-    expect(@page).to have_text Time.new.strftime("%-m/%d/%y")
+    expect(@page).to have_text Time.new.strftime("%-m/%-d/%y")
   end
 
   scenario 'mark a task as `done`' do
@@ -58,7 +58,7 @@ feature 'I want to be able to', js: true do
     @page.load
     @page.task_status_checkbox[0].click
 
-    expect(@page.task_item[0][:class]).to include('completed')
+    expect(@page.task_name[0][:class]).to include('completed')
   end
 
   scenario 'prioritise tasks into a project' do

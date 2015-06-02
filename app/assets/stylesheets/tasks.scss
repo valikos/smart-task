@@ -26,6 +26,10 @@
               text-decoration: line-through;
             }
           }
+          i {
+            cursor: pointer;
+            size: 0.7em;
+          }
         }
         .task-control {
           width:120px;
@@ -49,34 +53,37 @@
 tbody.angular-ui-tree-drag {
   position: absolute;
   width: inherit;
+  border: 2px dashed gray;
   tr.task {
     background-color: #f5f5f5;
     &:hover {
       background-color: #F1F1F1;
     }
     td {
+      padding: 8px;
       line-height: 2.5em;
       height: 2.5em;
-    }
-    .task-status {
-      width: 50px;
-      border-right: 1px solid #ffaa9f;
-    }
-    .task-name {
-      .task-item {
-        font-size: 2em;
-        &.completed {
-          color: #999;
-          text-decoration: line-through;
+      &.task-status {
+        width: 50px;
+        border-right: 1px solid #ffaa9f;
+      }
+      &.task-name {
+        width: 965px;
+        .task-item {
+          font-size: 2em;
+          &.completed {
+            color: #999;
+            text-decoration: line-through;
+          }
         }
       }
-    }
-    .task-control {
-      width:120px;
-      i {
-        cursor: pointer;
-        &.ctrl-move {
-          cursor: move;
+      &.task-control {
+        width:120px;
+        i {
+          cursor: pointer;
+          &.ctrl-move {
+            cursor: move;
+          }
         }
       }
     }
