@@ -39,8 +39,8 @@
      }());
   });
 
-  app.config( function( $facebookProvider ) {
-    $facebookProvider.setAppId('1576845662588924');
+  app.config(function($facebookProvider) {
+    $facebookProvider.setAppId("<%= ENV['FACEBOOK_APP_ID'] %>");
   });
 
   app.config([
