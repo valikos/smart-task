@@ -16,6 +16,7 @@ class ProjectsPage < SitePrism::Page
   elements :new_task_field, '.new-task'
   elements :add_new_task,   '.add-new-task'
   elements :task_item,      '.task'
+  elements :task_name,      '.task-item'
   elements :edit_task,      '.edit-task'
   elements :remove_task,    '.remove-task'
   elements :task_due_date,  '.set-due-date'

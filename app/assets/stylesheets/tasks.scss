@@ -1,71 +1,90 @@
 // Place all the styles related to the tasks controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.tasks {
+  .task-table {
+    tbody {
+      tr.task {
+        background-color: #f5f5f5;
+        &:hover {
+          background-color: #F1F1F1;
+        }
+        td {
+          line-height: 2.5em;
+          height: 2.5em;
+        }
+        .task-status {
+          width: 50px;
+          border-right: 1px solid #ffaa9f;
+        }
+        .task-name {
+          .task-item {
+            font-size: 2em;
+            &.completed {
+              color: #999;
+              text-decoration: line-through;
+            }
+          }
+          i {
+            cursor: pointer;
+            size: 0.7em;
+          }
+        }
+        .task-control {
+          width:120px;
+          i {
+            cursor: pointer;
+            &.ctrl-move {
+              cursor: move;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 .add-task {
   padding: 10px;
   background-color: #fff;
 }
-.tasks {
-  .completed {
-    .task-name {
-      color: #999;
-      text-decoration: line-through;
-    }
-  }
-  .list {
-    color: #555;
-    padding: 0;
-    font-family: courier, monospace;
-    border: 1px solid #dedede;
-    li {
-      list-style: none;
-      border-bottom: 1px dotted #ccc;
-      height: auto;
-      &:hover {
-        background-color: #f0f0f0;
-        -webkit-transition: all 0.2s;
-        -moz-transition:    all 0.2s;
-        -ms-transition:     all 0.2s;
-        -o-transition:      all 0.2s;
-      }
-    }
-  }
-  .task {
+
+tbody.angular-ui-tree-drag {
+  position: absolute;
+  width: inherit;
+  border: 2px dashed gray;
+  tr.task {
     background-color: #f5f5f5;
-    line-height: 33px;
-    height: 33px;
-    .task-status {
-      .check-status{
-        padding-left: 50%;
+    &:hover {
+      background-color: #F1F1F1;
+    }
+    td {
+      padding: 8px;
+      line-height: 2.5em;
+      height: 2.5em;
+      &.task-status {
+        width: 50px;
+        border-right: 1px solid #ffaa9f;
       }
-      label{
-        display:inline;
-        input[type="checkbox"] {
-          line-height: normal;
-          margin: 0;
+      &.task-name {
+        width: 965px;
+        .task-item {
+          font-size: 2em;
+          &.completed {
+            color: #999;
+            text-decoration: line-through;
+          }
         }
       }
-      border-right: 1px solid #ffaa9f;
-      .checkbox {
-        margin-top: 0;
-        margin-bottom: 0;
-      }
-    }
-    .task-control {
-      text-indent: 0;
-      .ctrl {
-        cursor: pointer;
-      }
-      .ctrl-move {
-        cursor: move;
-      }
-    }
-    .task-name {
-      span.task-item {
-        font-size: 22px;
-      }
-      span.task-due-date {
-        color: green;
+      &.task-control {
+        width:120px;
+        i {
+          cursor: pointer;
+          &.ctrl-move {
+            cursor: move;
+          }
+        }
       }
     }
   }
