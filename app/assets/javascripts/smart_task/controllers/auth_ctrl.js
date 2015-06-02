@@ -22,6 +22,7 @@
     };
 
     $scope.signOut = function() {
+      $facebook.logout();
       AuthToken.remove();
       $location.path('/sign_in');
     };
