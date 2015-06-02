@@ -41,6 +41,7 @@ gem 'omniauth-facebook'
 gem 'jwt'
 gem 'figaro'
 gem 'carrierwave', '~> 0.10.0'
+gem 'non-stupid-digest-assets', '~> 1.0.4'
 
 group :development, :test do
   gem 'rspec-rails', '~> 3.2.1'
