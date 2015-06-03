@@ -1,0 +1,42 @@
+<div class="navbar navbar-default navbar-static-top navbar-bg">
+  <div class="container">
+    <a class="navbar-brand" href>smartTask</a>
+    <p class="navbar-text new-project" data-toggle="modal" data-target="#add-project">
+      <i class="fa fa-plus-circle fa-lg project-add"></i>
+    </p>
+
+    <div class="navbar-collapse collapse navbar-responsive-collapse" ng-controller="AuthCtrl">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="" ng-click="signOut($event)"><i class="fa fa-sign-out"></i>Sign Out</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="well" ng-hide="projects.length > 0">
+    Add a new project for start!
+  </div>
+  <div class="row" ng-repeat="project in projects | orderBy: '+created_at'">
+    <div class="col-md-12">
+      <div class="project-box">
+        <div class="project-header">
+          <i class="fa fa-list-alt fa-2x"></i>
+          <div class="project-title">
+            <h1>{{ project.name }}</h1>
+          </div>
+          <div class="project-control">
+            <i class="fa fa-edit fa-lg fa-inverse edit-project" ng-click="editProject(project)"></i> |
+            <i class="fa fa-trash-o fa-lg fa-inverse remove-project" ng-click="removeProject($index)"></i>
+          </div>
+        </div>
+        <task-list></task-list>
+        <div class="project-body">
+        </div>
+      </div>
+    </div>
+    <!-- <ng-include src="'project/_edit.html'"></ng-include> -->
+    <div class="clearfix visible-xs-block"></div>
+  </div>
+</div>
+<ng-include src="'project/_add.html'"></ng-include>

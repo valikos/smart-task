@@ -1,0 +1,49 @@
+<div class="row">
+  <div class="col-md-12">
+    <section class="add-task">
+      <form>
+        <div class="input-group">
+          <input type="text" class="form-control new-task" placeholder="Describe New Task Here..." ng-model="newTask.name">
+          <span class="input-group-btn" ng-click="addTask(project.id)">
+            <button class="btn btn-success add-new-task" type="button">
+              <i class="fa fa-plus fa-lg"></i> Add Task
+            </button>
+          </span>
+        </div>
+      </form>
+    </section>
+  </div>
+</div>
+<div class="table-responsive tasks">
+  <table class="table task-table" ui-tree="draggable">
+    <tbody ng-model="project.tasks" ui-tree-nodes>
+      <tr class="task" ng-repeat="task in project.tasks" ui-tree-node>
+        <td class="text-center task-status">
+          <form class="form-inline">
+            <div class="form-group text-center check-status">
+              <label>
+                <input type="checkbox" class="task-status-control"
+                  ng-model="task.status" ng-click="updateTask(task)">
+              </label>
+            </div>
+          </form>
+        </td>
+        <td class="task-name">
+          <span class="task-item" ng-class="{completed: task.status}">
+            {{ task.name }}
+          </span>
+          <span class="task-due-date">{{ task.due_date | date:'shortDate'}}</span>
+          <span>
+            <i class="ctrl fa fa-calendar set-due-date" datepicker-popup ng-model="task.due_date" is-open="task.setDueDate" ng-click="openPicker(task)" ng-hide="task.due_date" ng-change="setDueDate(task)"></i>
+          </span>
+        </td>
+        <td class="text-center task-control">
+          <i class="ctrl fa fa-comments task-comments" ng-click="commentsModal(task)"></i>
+          <i class="ctrl ctrl-move fa fa-sort reorder-task" ui-tree-handle></i>
+          <i class="ctrl fa fa-pencil edit-task" ng-click="editTask(task)"></i>
+          <i class="ctrl fa fa-trash-o remove-task" ng-click="removeTask($index)"></i>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

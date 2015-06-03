@@ -11,5 +11,37 @@
  * file per style scope.
  *
  *= require_tree .
+ *= require ./project
  *= require_self
  */
+
+html,body {
+  background: asset-url('light-green-bg.jpg');
+  background-attachment: fixed;
+}
+
+.panel-heading {
+  padding: 5px 15px;
+}
+
+.panel-footer {
+  padding: 1px 15px;
+  color: #A0A0A0;
+}
+
+.profile-img {
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 10px;
+  display: block;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.flash-alert-popup {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 99999999999999;
+}

@@ -13,5 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require twitter/bootstrap
-//= require angular/angular
+//= require angular/angular.min
+//= require ui-router/release/angular-ui-router.min
+//= require angular-rails-templates
+//= require angular-resource/angular-resource.min
+//= require angular-bootstrap/ui-bootstrap.min
+//= require angular-bootstrap/ui-bootstrap-tpls.min
+//= require angular-ui-tree/dist/angular-ui-tree.min
+//= require ng-file-upload/ng-file-upload-all.min
+//= require angular-flash-alert/dist/angular-flash.min
+//= require ng-facebook/ngFacebook
+
+//= require smart_task/app
+//= require_tree ./templates
+//= require_tree ./smart_task/factories
+//= require_tree ./smart_task/directives
+//= require_tree ./smart_task/controllers
 //= require_tree .

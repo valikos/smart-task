@@ -1,0 +1,19 @@
+<div class="modal modal" id="add-project" data-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" ng-click="cancelEdit(project)"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add Project</h4>
+      </div>
+      <div class="modal-body">
+        <form ng-submit="addProject(newProject)">
+          <input class="form-control new-project-name" ng-model="newProject.name" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="cancelNewProject()">Cancel</button>
+        <button type="button" class="btn btn-primary add-new-project" ng-click="addProject(newProject)">Save</button>
+      </div>
+    </div>
+  </div>
+</div>

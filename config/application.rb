@@ -22,7 +22,23 @@ module SmartTask
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.assets.paths << Rails.root.join('vendor', 'assets', 'bower_components')
-    config.assets.precompile << %r(.*.(?:eot|svg|ttf|woff)$)
+    config.autoload_paths += %W(#{config.root}/lib/helpers)
+
+    config.jwt_expiration = 2.hours
+
+    config.generators do |g|
+      g.test_framework :rspec,
+        fixtures: true,
+        view_specs: false,
+        helper_specs: false,
+        routing_specs: false,
+        controller_specs: true,
+        model_specs: true,
+        request_specs: false
+      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+    end
   end
 end
+
+NotAuthenticatedError = Class.new(StandardError)
+AuthenticationTimeoutError = Class.new(StandardError)
