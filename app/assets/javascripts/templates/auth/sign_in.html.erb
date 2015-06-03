@@ -43,8 +43,8 @@
           </form>
         </div>
         <div class="panel-footer ">
-          Don't have an account! <a href="#/sign_up">Sign Up Here</a>
-          <a href ng-click="fbSignIn()">
+          Don't have an account! <a href="#/sign_up">Sign Up Here</a><br />
+          <a id="fb-sign-in" href ng-click="fbSignIn()">
             Sign in with Facebook
           </a>
         </div>
@@ -52,5 +52,3 @@
     </div>
   </div>
 </div>
-
-<!-- <%= Rails.application.routes.url_helpers.user_omniauth_authorize_path(:facebook) %> -->

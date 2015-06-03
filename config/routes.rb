@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   get 'attachment/upload'
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   root 'home#index'
 
   get 'home/index'
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
 
   post 'sign_in' => 'auth#login'
   post 'sign_up' => 'auth#sign_up'
+  post 'auth/facebook' => 'auth#facebook'
 
   resources :projects do
     resources :tasks do

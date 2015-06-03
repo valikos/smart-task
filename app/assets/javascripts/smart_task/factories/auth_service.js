@@ -30,6 +30,20 @@
           d.reject(resp.error);
         });
         return d.promise;
+      },
+      facebookSignIn: function(oauth) {
+        var d = $q.defer();
+        $http.post('/auth/facebook', {
+          oauth: oauth,
+        }).success(function(resp) {
+          AuthToken.set(resp.auth_token);
+          $rootScope.$broadcast(AuthEvents.loginSuccess);
+          d.resolve(resp.user);
+        }).error(function(resp) {
+          $rootScope.$broadcast(AuthEvents.loginFailed);
+          d.reject(resp.error);
+        });
+        return d.promise;
       }
     };
   };

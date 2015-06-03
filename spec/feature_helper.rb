@@ -13,3 +13,5 @@ Dir[Rails.root.join("spec/support/helpers/features/*.rb")].each {|f| require f }
 RSpec.configure do |config|
   config.include LoginHelper
 end
+
+OmniAuth.config.test_mode = true

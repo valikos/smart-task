@@ -6,7 +6,7 @@ class AuthController < ApplicationController
     begin
       user = User.new(credential_params)
       user.save
-      sign_in user
+      # sign_in user
       render json: { auth_token: user.generate_auth_token }
     rescue
       render json: { error: 'Invalid credentials' }, status: :unauthorized
@@ -17,14 +17,23 @@ class AuthController < ApplicationController
     user = User.find_by(email: params[:email])
 
     if user && user.valid_password?(params[:password])
-      sign_in user
+      # sign_in user
       render json: { auth_token: user.generate_auth_token }
     else
       render json: { error: 'Invalid credentials' }, status: :unauthorized
     end
   end
 
+  def facebook
+    user = User.from_omniauth('facebook', oauth_params)
+    render json: { auth_token: user.generate_auth_token }
+  end
+
   private
+
+  def oauth_params
+    params.require(:oauth)
+  end
 
   def credential_params
     params.require(:auth).permit(:email, :password)

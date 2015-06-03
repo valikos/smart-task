@@ -11,9 +11,9 @@ class User < ActiveRecord::Base
     AuthToken.encode(payload)
   end
 
-  def self.from_omniauth(auth)
-    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = auth.info.email
+  def self.from_omniauth(provider, oauth)
+    where(provider: provider, uid: oauth['id']).first_or_create do |user|
+      user.email = oauth['email']
       user.password = Devise.friendly_token[0,20]
     end
   end

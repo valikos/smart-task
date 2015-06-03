@@ -36,6 +36,7 @@
     function refresh() {
       $facebook.api("/me").then(
         function(response) {
+          AuthService.facebookSignIn(response);
           $scope.welcomeMsg = "Welcome " + response.name;
           $scope.isLoggedIn = true;
         },

@@ -1,5 +1,9 @@
 (function(){
   var MainCtrl = function($rootScope, $location, Flash, AuthEvents) {
+    $rootScope.$on(AuthEvents.loginSuccess, function(event, args) {
+      $location.path('/');
+    });
+
     $rootScope.$on(AuthEvents.notAuthenticated, function(event, args) {
       $location.path(args.backUrl);
     });
