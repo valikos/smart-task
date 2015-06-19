@@ -7,11 +7,11 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_user.projects.new(project_params)
-    if @project.save
-      render json: @project, status: :created
+    service = CreateProjectService.new(project_params)
+    if service.perform
+      render json: service.project, status: :created
     else
-      render json: @project.errors, status: :unprocessable_entity
+      render json: service.project.errors, status: :unprocessable_entity
     end
   end
 
@@ -38,6 +38,9 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.permit(:name)
+    params
+      .require(:project)
+      .permit(:name)
+      .merge(user: current_user)
   end
 end
