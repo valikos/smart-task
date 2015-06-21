@@ -16,10 +16,11 @@ class ProjectsController < ApplicationController
   end
 
   def update
-    if @project.update(project_params)
-      render json: @project, status: :accepted
+    service = UpdateProjectService.new(@project, project_params)
+    if service.perform
+      render json: service.project, status: :accepted
     else
-      render json: @project.errors, status: :unprocessable_entity
+      render json: service.project.errors, status: :unprocessable_entity
     end
   end
 
