@@ -66,4 +66,34 @@ describe ProjectsController, type: :controller do
       it { should respond_with(422) }
     end
   end
+
+  describe '#destroy' do
+    let(:project) {
+      FactoryGirl.create :project
+    }
+
+    let(:params) {
+      { id: project.id }
+    }
+
+    before do
+      allow(DestroyProjectService).to receive(:new).and_return(service)
+
+      sign_in project.user
+
+      get :destroy, params
+    end
+
+    context 'when success' do
+      let(:status) { true }
+
+      it { should respond_with(204) }
+    end
+
+    context 'when failure' do
+      let(:status) { false }
+
+      it { should respond_with(422) }
+    end
+  end
 end

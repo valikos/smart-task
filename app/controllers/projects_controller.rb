@@ -25,10 +25,11 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    if @project.destroy
+    service = DestroyProjectService.new(@project)
+    if service.perform
       head :no_content
     else
-      render json: @project.errors, status: :unprocessable_entity
+      head :unprocessable_entity
     end
   end
 
