@@ -18,16 +18,6 @@ describe UpdateProjectService do
     end
   end
 
-  describe '#model' do
-    subject {
-      UpdateProjectService.new double('project')
-    }
-
-    it 'returns Project model' do
-      expect(subject.model).to be Project
-    end
-  end
-
   describe '#perform' do
     let(:project) {
       FactoryGirl.create :project

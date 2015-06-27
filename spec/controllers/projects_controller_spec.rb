@@ -51,7 +51,7 @@ describe ProjectsController, type: :controller do
 
       sign_in project.user
 
-      get :update, params
+      post :update, params
     end
 
     context 'when success' do
@@ -81,7 +81,7 @@ describe ProjectsController, type: :controller do
 
       sign_in project.user
 
-      get :destroy, params
+      post :destroy, params
     end
 
     context 'when success' do

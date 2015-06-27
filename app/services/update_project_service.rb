@@ -1,6 +1,4 @@
 class UpdateProjectService < ServiceBase
-  set_model ::Project
-
   attr_reader :project
 
   def initialize(project, params = {})
