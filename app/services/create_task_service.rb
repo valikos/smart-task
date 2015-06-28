@@ -1,7 +1,4 @@
 class CreateTaskService < ServiceBase
-  extend Forwardable
-  def_delegators :@context, :params, :current_user
-
   set_model Task
 
   attr_reader :task
