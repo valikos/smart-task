@@ -34,7 +34,7 @@
           </span>
           <span class="task-due-date">{{ task.due_date | date:'shortDate'}}</span>
           <span>
-            <i class="ctrl fa fa-calendar set-due-date" datepicker-popup ng-model="task.due_date" is-open="task.setDueDate" ng-click="openPicker(task)" ng-hide="task.due_date" ng-change="setDueDate(task)"></i>
+            <i class="ctrl fa fa-calendar set-due-date" datepicker-popup ng-model="task.due_date" is-open="task.setDueDate" ng-click="openPicker(task)" ng-change="setDueDate(task)"></i>
           </span>
         </td>
         <td class="text-center task-control">

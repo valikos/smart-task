@@ -51,6 +51,17 @@ feature 'I want to be able to', js: true do
     expect(@page).to have_text Time.new.strftime("%-m/%-d/%y")
   end
 
+  scenario 'rechoose deadline for my task' do
+    task = FactoryGirl.create :task, due_date: Time.now
+    skip_auth_for(task.project.user)
+
+    @page.load
+    @page.task_due_date[0].click
+    @page.datepicker.due_dates.first.click
+
+    expect(@page).to_not have_text Time.new.strftime("%-m/%-d/%y")
+  end
+
   scenario 'mark a task as `done`' do
     task = FactoryGirl.create :task
     skip_auth_for(task.project.user)

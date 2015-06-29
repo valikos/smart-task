@@ -29,7 +29,7 @@ feature 'I want to be able to', js: true do
     expect(@page).to have_text new_project_name
   end
 
-  scenario 'delete project', dd: true do
+  scenario 'delete project' do
     project = FactoryGirl.create(:project)
     skip_auth_for(project.user)
 
