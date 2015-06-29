@@ -7,27 +7,29 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = current_user.projects.new(project_params)
-    if @project.save
-      render json: @project, status: :created
+    service = CreateProjectService.new(project_params)
+    if service.perform
+      render json: service.project, status: :created
     else
-      render json: @project.errors, status: :unprocessable_entity
+      render json: service.project.errors, status: :unprocessable_entity
     end
   end
 
   def update
-    if @project.update(project_params)
-      render json: @project, status: :accepted
+    service = UpdateProjectService.new(@project, project_params)
+    if service.perform
+      render json: service.project, status: :accepted
     else
-      render json: @project.errors, status: :unprocessable_entity
+      render json: service.project.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    if @project.destroy
+    service = DestroyProjectService.new(@project)
+    if service.perform
       head :no_content
     else
-      render json: @project.errors, status: :unprocessable_entity
+      head :unprocessable_entity
     end
   end
 
@@ -38,6 +40,9 @@ class ProjectsController < ApplicationController
   end
 
   def project_params
-    params.permit(:name)
+    params
+      .require(:project)
+      .permit(:name)
+      .merge(user: current_user)
   end
 end

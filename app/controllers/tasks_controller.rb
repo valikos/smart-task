@@ -1,37 +1,47 @@
 class TasksController < ApplicationController
-  # before_action :set_current_user, :authenticate_request
+  before_action :task, only: [:update, :destroy]
 
   def create
-    @task = current_project.tasks.new(task_params)
-    if @task.save
-      render json: @task, status: :created
+    service = CreateTaskService.new(task_params)
+    if service.perform
+      render json: service.task, status: :created
     else
-      render json: @task.errors, status: :unprocessable_entity
+      render json: service.task.errors, status: :unprocessable_entity
     end
   end
 
   def update
-    @task = current_project.tasks.find(params[:id])
-    if @task.update(task_params)
-      render json: @task.errors, status: :accepted
+    service = UpdateTaskService.new(@task, task_params)
+    if service.perform
+      render json: service.task, status: :accepted
     else
-      render json: @task.errors, status: :unprocessable_entity
+      render json: service.task.errors, status: :unprocessable_entity
     end
   end
 
   def destroy
-    Task.destroy params[:id]
-    head :no_content
+    service = DestroyTaskService.new(@task)
+    if service.perform
+      head :no_content
+    else
+      head :unprocessable_entity
+    end
   end
 
   def reorder_position
-    params[:tasks].each_with_index do |id, index|
-      Task.update(id, position: index + 1)
+    service = ReorderTasksService.new(params[:tasks])
+    if service.perform
+      head :no_content
+    else
+      head :unprocessable_entity
     end
-    render nothing: true
   end
 
   protected
+
+  def task
+    @task = current_project.tasks.find(params[:id])
+  end
 
   def current_project
     current_user.projects.find(params[:project_id])
@@ -39,5 +49,6 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:name, :status, :due_date)
+      .merge(project: current_project)
   end
 end
