@@ -1,12 +1,12 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe AttachmentController, type: :controller do
+# RSpec.describe AttachmentController, type: :controller do
 
-  describe "GET #upload" do
-    it "returns http success" do
-      get :upload
-      expect(response).to have_http_status(:success)
-    end
-  end
+#   describe "GET #upload" do
+#     it "returns http success" do
+#       get :upload
+#       expect(response).to have_http_status(:success)
+#     end
+#   end
 
-end
+# end

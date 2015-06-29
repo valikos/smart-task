@@ -23,6 +23,7 @@ class ProjectsPage < SitePrism::Page
   elements :reorder_task,   '.reorder-task'
   elements :task_status_checkbox, '.task-status-control'
   elements :task_comments,  '.task-comments'
+  elements :due_dates,      'ul.dropdown-menu td.text-center.ng-scope button'
 
   section :datepicker, DatepickerSection, "ul.dropdown-menu"
   section :comments, CommentsSection, "div.modal-comments div.modal-content"

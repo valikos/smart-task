@@ -17,7 +17,7 @@ feature 'I want to be able to', js: true do
     expect(@page.comments.comment[0]).to have_text 'Nice'
   end
 
-  scenario 'delete coments' do
+  scenario 'delete comments' do
     comment = FactoryGirl.create :comment
     skip_auth_for(comment.task.project.user)
 

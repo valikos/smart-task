@@ -2,6 +2,7 @@ require 'feature_helper'
 
 feature 'I want to be able to sign in', js: true do
   let(:user) { FactoryGirl.create :user }
+  let(:test_user) { FactoryGirl.build :test_user }
 
   background do
     @sign_in = SignInPage.new
@@ -13,6 +14,14 @@ feature 'I want to be able to sign in', js: true do
     @sign_in.email_field.set user.email
     @sign_in.password_field.set user.password
     @sign_in.credentials_submit.click
+
+    expect(@sign_in).to have_text 'Sign Out'
+  end
+
+  scenario 'by facebook' do
+    @sign_in.load
+
+    complete_facebook_dialogues_on_click('#fb-sign-in', test_user)
 
     expect(@sign_in).to have_text 'Sign Out'
   end
