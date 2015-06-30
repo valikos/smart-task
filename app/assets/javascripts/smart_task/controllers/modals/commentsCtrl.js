@@ -6,7 +6,7 @@
       project_id: args.task.project_id
     };
 
-    $scope.comments = args.task.comments;
+    $scope.comments = args.task.comments || [];
 
     $scope.ok = function() {
       $modalInstance.close($scope.item);
